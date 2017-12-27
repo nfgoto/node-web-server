@@ -1,7 +1,7 @@
 const express = require('express');
 const hbs = require('hbs'); // handlebars view engine
 const fs = require('fs');
-var app = express();
+let app = express();
 
 // to set vars for express config
 app.set('view engine', 'hbs'); // views directory is where Express looks for templates
@@ -25,8 +25,8 @@ hbs.registerHelper('screamIt', (text) => {
 // next() is necessary to tell Express when middleware is done 
 // so that other handlers can execute (async)
 app.use((req, res, next) => {
-    var now = new Date().toString();
-    var log = `${now} : ${req.method} ${req.url}`;
+    let now = new Date().toString();
+    let log = `${now} : ${req.method} ${req.url}`;
     console.log(log);
     fs.appendFile('server.log', log + '\n', (err) => {
         if (err) {
@@ -50,9 +50,8 @@ app.use((req, res, next) => {
 app.use(express.static(__dirname + '/public'));
 
 
-// set up a handler for a HTTP GET request on the root route
+// set up a handler for a HTTP GET request on the  / (root) route
 app.get('/', (req, res) => {
-    //res.send({name: 'toto',city: 'Luganda',race: 'Black'}); // objects automatically converted to JSON string
     res.render('home.hbs', {
         pageTitle: 'Home Page',
         welcomeMessage: 'Welcome to your first Express.js site'
@@ -60,7 +59,7 @@ app.get('/', (req, res) => {
 });
 
 
-// GET handler for the about route
+// GET handler for the /about route
 app.get('/about', (req, res) => {
     // will render template with the set up view engine
     // passing data to be rendered with an object
@@ -81,7 +80,7 @@ app.get('/bad', (req, res) => {
 });
 
 
-// will bound the app to a port on our machine
+// will bound the app to a port on our server
 app.listen(3000, () => {
     console.log('Server is up on port 3000');
 });
