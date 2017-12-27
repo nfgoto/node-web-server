@@ -60,7 +60,7 @@ app.get('/', (req, res) => {
 });
 
 
-// GET handler for the aout route
+// GET handler for the about route
 app.get('/about', (req, res) => {
     // will render template with the set up view engine
     // passing data to be rendered with an object
