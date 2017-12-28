@@ -42,10 +42,10 @@ app.use((req, res, next) => {
 })
 
 
-app.use((req, res, next) => {
-    res.render('maintenance.hbs');
-    // because there is no next() the other handlers will not be executed
-});
+// app.use((req, res, next) => {
+//     res.render('maintenance.hbs');
+//     // because there is no next() the other handlers will not be executed
+// });
 
 
 // '__dirname' stores the path to project directory
@@ -58,7 +58,7 @@ app.use(express.static(__dirname + '/public'));
 app.get('/', (req, res) => {
     res.render('home.hbs', {
         pageTitle: 'Home Page',
-        welcomeMessage: 'Welcome to your first Express.js site'
+        welcomeMessage: 'Welcome to my site'
     })
 });
 
@@ -84,18 +84,14 @@ app.get('/bad', (req, res) => {
 });
 
 
-// add project page to link uo to github projectS
-// handlebars template
-// route /projects
-// render a message portfolio page here
-// add link in the header partial to that page 
 // deploy the app on heroku
 
 app.get('/projects',(req, res) => {
     res.render('projects.hbs',{
         pageTitle: 'Portfolio',
         welcomeMessage: 'Welcome to my portfolio',
-        message: 'Here you will find projects in my portfolio.'
+        message: 'Here you will find projects in my portfolio: ',
+        githubUrl: 'https://github.com/GotoFlorian'
     })
 });
 
