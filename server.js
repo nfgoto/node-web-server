@@ -1,6 +1,10 @@
 const express = require('express');
 const hbs = require('hbs'); // handlebars view engine
 const fs = require('fs');
+
+// process.env stores OS vars as key/value pairs
+// default port 3000 for our local server
+const port = process.env.PORT || 3000;
 let app = express();
 
 // to set vars for express config
@@ -81,6 +85,6 @@ app.get('/bad', (req, res) => {
 
 
 // will bound the app to a port on our server
-app.listen(3000, () => {
-    console.log('Server is up on port 3000');
+app.listen(port, () => {
+    console.log(`Server is up on port ${port}`);
 });
