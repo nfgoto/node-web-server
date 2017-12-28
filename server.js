@@ -84,6 +84,24 @@ app.get('/bad', (req, res) => {
 });
 
 
+// add project page to link uo to github projectS
+// handlebars template
+// route /projects
+// render a message portfolio page here
+// add link in the header partial to that page 
+// deploy the app on heroku
+
+app.get('/projects',(req, res) => {
+    res.render('projects',{
+        message: 'This is my portfolio.'
+    })
+});
+
+
+
+
+
+
 // will bound the app to a port on our server
 app.listen(port, () => {
     console.log(`Server is up on port ${port}`);
