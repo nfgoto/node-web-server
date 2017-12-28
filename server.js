@@ -84,8 +84,6 @@ app.get('/bad', (req, res) => {
 });
 
 
-// deploy the app on heroku
-
 app.get('/projects',(req, res) => {
     res.render('projects.hbs',{
         pageTitle: 'Portfolio',
