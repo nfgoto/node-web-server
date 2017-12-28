@@ -92,8 +92,10 @@ app.get('/bad', (req, res) => {
 // deploy the app on heroku
 
 app.get('/projects',(req, res) => {
-    res.render('projects',{
-        message: 'This is my portfolio.'
+    res.render('projects.hbs',{
+        pageTitle: 'Portfolio',
+        welcomeMessage: 'Welcome to my portfolio',
+        message: 'Here you will find projects in my portfolio.'
     })
 });
 
